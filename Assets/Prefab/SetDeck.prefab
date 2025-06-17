@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1476817412896955157}
   - component: {fileID: 3379029972562996839}
   - component: {fileID: -7520971408516252832}
+  - component: {fileID: -2332811347588899798}
   m_Layer: 5
   m_Name: SetDeck
   m_TagString: Untagged
@@ -89,3 +90,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c5e13782062134a88c1308578bc09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2332811347588899798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683796813481549400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e794a1dce4b160449b1621920572556e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iD: 0

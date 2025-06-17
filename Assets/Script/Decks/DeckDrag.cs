@@ -1,10 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
 {
+    private DeckGeneration deckGeneration;
+    
+    void Start()
+    {
+        deckGeneration = FindObjectOfType<DeckGeneration>();
+    }
+    
     public void OnDrag(PointerEventData pointerEventData)
     {
         transform.position = pointerEventData.position;
@@ -12,6 +18,8 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
 
     public void OnDrop(PointerEventData pointerEventData)
     {
+        gameObject.transform.SetParent(deckGeneration.parent.transform); //親オブジェクトをcanvasに変更
+
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(pointerEventData, results);
         foreach(var hit in results)
@@ -20,6 +28,24 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
             {
                 transform.position = hit.gameObject.transform.position;
                 Debug.Log("デッキがセットされたよ");
+
+                //コストを増加させる
+                int dropDeckCost = this.gameObject.GetComponent<DeckStatus>().cost;
+                deckGeneration.TotalCostAdd(dropDeckCost);
+            }
+            else if (hit.gameObject.CompareTag("RemoveDeck"))
+            {
+                gameObject.transform.SetParent(deckGeneration.deck.transform); //元の親オブジェクトに変更し、GridLayoutGroupで整頓
+                Debug.Log("デッキを戻したよ");
+
+                //コストを減算
+                int dropDeckCost = this.gameObject.GetComponent<DeckStatus>().cost;
+                deckGeneration.TotalCostSubtraction(dropDeckCost);
+            }
+            else if(hit.gameObject.CompareTag("CanNotPut")) //デッキが置けない場所
+            {
+                gameObject.transform.SetParent(deckGeneration.deck.transform);
+                Debug.Log("ここに置くことはできない");
             }
         }
     }

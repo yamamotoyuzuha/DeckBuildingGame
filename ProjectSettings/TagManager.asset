@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - SetDeck
+  - RemoveDeck
+  - CanNotPut
   layers:
   - Default
   - TransparentFX
