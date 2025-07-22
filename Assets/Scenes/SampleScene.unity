@@ -352,8 +352,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -575,7 +575,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 255, y: 305}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &464599736
 MonoBehaviour:
@@ -705,9 +705,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2acd62c71a89a04e88d88228f336f70, type: 2}
   - {fileID: 11400000, guid: bef316643544f904388dd9a4a763ab70, type: 2}
   - {fileID: 11400000, guid: 58118c33cf064bf4c8c2c6977b4a7a52, type: 2}
+  - {fileID: 11400000, guid: 50a0ed4d53099de4081b0a01c9cb348a, type: 2}
+  - {fileID: 11400000, guid: cbbec66757853104db5a7564ed464d55, type: 2}
+  - {fileID: 11400000, guid: f9d4d33437c717e47bf96da6ae98f6e6, type: 2}
+  - {fileID: 11400000, guid: 210200b49043cbe4481eca8f0be67b36, type: 2}
+  - {fileID: 11400000, guid: 7b2140d6e5e52d243aa2f1831d7be415, type: 2}
+  - {fileID: 11400000, guid: e83cc9ef9ecdd054bb269e9e1470b33c, type: 2}
+  - {fileID: 11400000, guid: 438d87ab897749e49986d4f5f9382eee, type: 2}
   decksPerant: {fileID: 995149749}
   deckPrefab: {fileID: 1683796813481549400, guid: d603c97451d0e614b824fb7c85422841, type: 3}
-  installationNum: 4
+  installationNum: 15
   totalCostText: {fileID: 2014085831}
   totalCost: 0
   costUpperLimit: 10
@@ -1073,7 +1080,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 255, y: 370}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &719925854
 MonoBehaviour:
@@ -1330,8 +1337,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1494,9 +1501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deckGeneration: {fileID: 478229042}
-  generationList: 
-  costList: 
-  hpList: 
   SortButton: {fileID: 483778015}
   SortButtons: {fileID: 1811234314}
   isGeneration: 0
@@ -1665,8 +1669,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2263,8 +2267,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2561,7 +2565,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 255, y: 235}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698381217
 MonoBehaviour:
@@ -2695,7 +2699,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 255, y: 435}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759956855
 MonoBehaviour:

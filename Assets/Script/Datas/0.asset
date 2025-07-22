@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221cf73e6a7ea844cbf5e8717e22c2e7, type: 3}
   m_Name: 0
   m_EditorClassIdentifier: 
-  characterName: "\u30B9\u30E9\u30A4\u30E0"
+  characterName: "\u9B54\u6CD5\u5C11\u5973_\u6C34"
   hp: 100
   cost: 4
   id: 0
-  image: {fileID: 0}
-  generation: 0
+  image: {fileID: 21300000, guid: 8e98919d43a9c604d95302e45261172b, type: 3}
+  acquisition: 0

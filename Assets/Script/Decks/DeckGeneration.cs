@@ -20,7 +20,7 @@ public class DeckGeneration : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalCostText;
 
     [Header("現在のトータルコスト")]
-    [SerializeField] int totalCost;
+    public int totalCost;
 
     [Header("コスト上限")]
     [SerializeField] int costUpperLimit;
@@ -51,11 +51,13 @@ public class DeckGeneration : MonoBehaviour
             {
                 //生成したデッキにステータスを割り当て
                 int random = Random.Range(0, characterData.Length);
-                decks.characterName = characterData[random].characterName;
-                decks.hp = characterData[random].hp;
-                decks.cost = characterData[random].cost;
-                decks.iD = characterData[random].id;
-                decks.generation = i;
+                decks.characterName = characterData[random].Name;
+                decks.hp = characterData[random].HP;
+                decks.cost = characterData[random].Cost;
+                decks.iD = characterData[random].ID;
+                decks.generation = characterData[random].Acquisition;
+
+                decks.image = characterData[random].Image;
 
                 allDecks.Add(decks); //生成したデッキをリストに追加
             }
@@ -108,13 +110,12 @@ public class DeckGeneration : MonoBehaviour
         }
     }
 
-    public void SortDeckGeneration(List<int> sortDeck) //ソートしたデッキを生成
+    public void SortDeckGeneration(List<(int, string)> sortDeck) //ソートしたデッキを生成
     {
         if (deckSort.isGeneration)
         {
             CharacterData match = null; //データとマッチしたものを入れる
-            int num = 0; //生成した順
-
+            
             allDecks.Clear(); //生成したデッキを削除
 
             //生成したカードオブジェクトを削除
@@ -127,7 +128,7 @@ public class DeckGeneration : MonoBehaviour
             {
                 foreach (var deta in characterData) //カードデータ
                 {
-                    if (deta.generation == generation) //カードデータのカード入手順とソートしたデッキのカード入手順が一致したら
+                    if (deta.Acquisition == generation.Item1 && deta.Name == generation.Item2) //カードデータのカード入手順とソートしたデッキのカード入手順が一致したら
                     {
                         match = deta;
                         break;
@@ -138,25 +139,23 @@ public class DeckGeneration : MonoBehaviour
                 var decks = obj.GetComponent<DeckStatus>();
 
                 //生成したデッキ（カード）にカードの情報を代入
-                decks.characterName = match.characterName;
-                decks.hp = match.hp;
-                decks.cost = match.cost;
-                decks.iD = match.id;
-                decks.generation = num;
+                decks.characterName = match.Name;
+                decks.hp = match.HP;
+                decks.cost = match.Cost;
+                decks.iD = match.ID;
+                decks.generation = match.Acquisition;
 
-                num++;
+                decks.image = match.Image;
 
                 allDecks.Add(decks); //生成したデッキをリストに追加
 
                 deckSort.isGeneration = false;
             }
-
         }
         else if (deckSort.isCost)
         {
             CharacterData match = null; //データとマッチしたものを入れる
-            int num = 0; //生成した順
-
+            
             allDecks.Clear(); //生成したデッキを削除
 
             //生成したカードオブジェクトを削除
@@ -169,7 +168,7 @@ public class DeckGeneration : MonoBehaviour
             {
                 foreach (var deta in characterData) //カードデータ
                 {
-                    if (deta.cost == cost) //カードデータのカードコストとソートしたデッキのカードコストが一致したら
+                    if (deta.Cost == cost.Item1 && deta.Name == cost.Item2) //カードデータのカードコストとソートしたデッキのカードコストが一致したら
                     {
                         match = deta;
                         break;
@@ -180,13 +179,13 @@ public class DeckGeneration : MonoBehaviour
                 var decks = obj.GetComponent<DeckStatus>();
 
                 //生成したデッキ（カード）にカードの情報を代入
-                decks.characterName = match.characterName;
-                decks.hp = match.hp;
-                decks.cost = match.cost;
-                decks.iD = match.id;
-                decks.generation = num;
+                decks.characterName = match.Name;
+                decks.hp = match.HP;
+                decks.cost = match.Cost;
+                decks.iD = match.ID;
+                decks.generation = match.Acquisition;
 
-                num++;
+                decks.image = match.Image;
 
                 allDecks.Add(decks); //生成したデッキをリストに追加
 
@@ -196,8 +195,7 @@ public class DeckGeneration : MonoBehaviour
         else if (deckSort.isHp)
         {
             CharacterData match = null; //データとマッチしたものを入れる
-            int num = 0; //生成した順
-
+            
             allDecks.Clear(); //生成したデッキを削除
 
             //生成したカードオブジェクトを削除
@@ -210,7 +208,7 @@ public class DeckGeneration : MonoBehaviour
             {
                 foreach (var deta in characterData) //カードデータ
                 {
-                    if (deta.hp == hp) //カードデータのカードHPとソートしたデッキのカードHPが一致したら
+                    if (deta.HP == hp.Item1 && deta.Name == hp.Item2) //カードデータのカードHPとソートしたデッキのカードHPが一致したら
                     {
                         match = deta;
                         break;
@@ -221,19 +219,18 @@ public class DeckGeneration : MonoBehaviour
                 var decks = obj.GetComponent<DeckStatus>();
 
                 //生成したデッキ（カード）にカードの情報を代入
-                decks.characterName = match.characterName;
-                decks.hp = match.hp;
-                decks.cost = match.cost;
-                decks.iD = match.id;
-                decks.generation = num;
+                decks.characterName = match.Name;
+                decks.hp = match.HP;
+                decks.cost = match.Cost;
+                decks.iD = match.ID;
+                decks.generation = match.Acquisition;
 
-                num++;
+                decks.image = match.Image;
 
                 allDecks.Add(decks); //生成したデッキをリストに追加
 
                 deckSort.isHp = false;
             }
         }
-        
     }
 }

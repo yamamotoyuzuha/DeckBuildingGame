@@ -14,6 +14,9 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
     public void OnDrag(PointerEventData pointerEventData)
     {
         transform.position = pointerEventData.position;
+
+        //ドラッグしているデッキをデッキリストから削除
+        deckGeneration.allDecks.Remove(this.GetComponent<DeckStatus>());
     }
 
     public void OnDrop(PointerEventData pointerEventData)
@@ -39,6 +42,10 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
                 gameObject.transform.SetParent(deckGeneration.decksPerant.transform); //元の親オブジェクトに変更し、GridLayoutGroupで整頓
                 Debug.Log("デッキを戻したよ");
 
+                //ドラッグしていたデッキをデッキリストに追加
+                deckGeneration.allDecks.Add(this.GetComponent<DeckStatus>());
+
+                if (deckGeneration.totalCost < 0) return; //デッキをセットしていない場合
                 //コストを減算
                 int dropDeckCost = this.gameObject.GetComponent<DeckStatus>().cost;
                 deckGeneration.TotalCostSubtraction(dropDeckCost);
@@ -47,6 +54,8 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
             {
                 gameObject.transform.SetParent(deckGeneration.decksPerant.transform);
                 Debug.Log("ここに置くことはできない");
+
+                deckGeneration.allDecks.Add(this.GetComponent<DeckStatus>());
             }
         }
     }

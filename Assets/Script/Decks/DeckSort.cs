@@ -7,9 +7,9 @@ public class DeckSort : MonoBehaviour
     [SerializeField] DeckGeneration deckGeneration;
 
     [Header("ソートリスト")]
-    public List<int> generationList;
-    public List<int> costList;
-    public List<int> hpList;
+    public List<(int, string)> generationList = new List<(int, string)>();
+    public List<(int, string)> costList = new List<(int, string)>();
+    public List<(int, string)> hpList = new List<(int, string)>();
 
     [Header("ソートボタン")]
     public GameObject SortButton;
@@ -51,16 +51,15 @@ public class DeckSort : MonoBehaviour
         isGeneration = true; 
 
         generationList.Clear();
-
+        
         if (!isgenerationChange)
         {
             foreach (var deck in deckGeneration.allDecks)
             {
-                generation = deck.generation;
-                generationList.Add(generation);
-                generationList.Sort();
+                generationList.Add((deck.generation, deck.characterName));
             }
             isgenerationChange = true;
+            generationList.Sort();
 
             deckGeneration.SortDeckGeneration(generationList);
         }
@@ -68,12 +67,11 @@ public class DeckSort : MonoBehaviour
         {
             foreach (var deck in deckGeneration.allDecks)
             {
-                generation = deck.generation;
-                generationList.Add(generation);
-                generationList.Sort();
-                generationList.Reverse();
+                generationList.Add((deck.generation, deck.characterName));
             }
             isgenerationChange = false;
+            generationList.Sort();
+            generationList.Reverse();
 
             deckGeneration.SortDeckGeneration(generationList);
         }
@@ -89,11 +87,10 @@ public class DeckSort : MonoBehaviour
         {
             foreach (var deck in deckGeneration.allDecks)
             {
-                cost = deck.cost;
-                costList.Add(cost);
-                costList.Sort();
+                costList.Add((deck.cost, deck.characterName));
             }
             isCostChange = true;
+            costList.Sort();
 
             deckGeneration.SortDeckGeneration(costList); //ソートしたデッキを再度生成する
         }
@@ -101,12 +98,11 @@ public class DeckSort : MonoBehaviour
         {
             foreach (var deck in deckGeneration.allDecks)
             {
-                cost = deck.cost;
-                costList.Add(cost);
-                costList.Sort();
-                costList.Reverse();
+                costList.Add((deck.cost, deck.characterName));
             }
             isCostChange = false;
+            costList.Sort();
+            costList.Reverse();
 
             deckGeneration.SortDeckGeneration(costList); //ソートしたデッキを再度生成する
         }
@@ -122,11 +118,10 @@ public class DeckSort : MonoBehaviour
         {
             foreach(var deck in deckGeneration.allDecks)
             {
-                hp = deck.hp;
-                hpList.Add(hp);
-                hpList.Sort();
+                hpList.Add((deck.hp, deck.characterName));
             }
             isHpChange = true;
+            hpList.Sort();
 
             deckGeneration.SortDeckGeneration(hpList);
         }
@@ -134,12 +129,11 @@ public class DeckSort : MonoBehaviour
         {
             foreach(var deck in deckGeneration.allDecks)
             {
-                hp = deck.hp;
-                hpList.Add(hp);
-                hpList.Sort();
-                hpList.Reverse();
+                hpList.Add((deck.hp, deck.characterName));
             }
             isHpChange = false;
+            hpList.Sort();
+            hpList.Reverse();
 
             deckGeneration.SortDeckGeneration(hpList);
         }
