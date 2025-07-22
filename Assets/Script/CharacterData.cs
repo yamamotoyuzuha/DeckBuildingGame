@@ -11,11 +11,13 @@ public class CharacterData : ScriptableObject
     public int cost;
     public int id;
     public Image image;
+    public int generation;
 
     public string Name { get => characterName; }
     public int HP { get => hp; }
     public int Cost { get => cost; }
     public int ID { get => id; }
-
     public Image Image { get => image; }
+
+    public int Generation { get => generation; }
 }

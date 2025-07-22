@@ -18,6 +18,7 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
 
     public void OnDrop(PointerEventData pointerEventData)
     {
+        //キャンバスにしないとデッキを移動させる際に、デッキリストが詰められて並ばなくなるため
         gameObject.transform.SetParent(deckGeneration.parent.transform); //親オブジェクトをcanvasに変更
 
         var results = new List<RaycastResult>();
@@ -35,7 +36,7 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
             }
             else if (hit.gameObject.CompareTag("RemoveDeck"))
             {
-                gameObject.transform.SetParent(deckGeneration.deck.transform); //元の親オブジェクトに変更し、GridLayoutGroupで整頓
+                gameObject.transform.SetParent(deckGeneration.decksPerant.transform); //元の親オブジェクトに変更し、GridLayoutGroupで整頓
                 Debug.Log("デッキを戻したよ");
 
                 //コストを減算
@@ -44,7 +45,7 @@ public class DeckDrag : MonoBehaviour, IDragHandler, IDropHandler
             }
             else if(hit.gameObject.CompareTag("CanNotPut")) //デッキが置けない場所
             {
-                gameObject.transform.SetParent(deckGeneration.deck.transform);
+                gameObject.transform.SetParent(deckGeneration.decksPerant.transform);
                 Debug.Log("ここに置くことはできない");
             }
         }

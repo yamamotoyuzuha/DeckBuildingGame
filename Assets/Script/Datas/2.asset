@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 221cf73e6a7ea844cbf5e8717e22c2e7, type: 3}
-  m_Name: 0
+  m_Name: 2
   m_EditorClassIdentifier: 
-  characterName: "\u30B9\u30E9\u30A4\u30E0"
-  hp: 100
-  cost: 4
-  id: 0
+  characterName: "\u30B4\u30D6\u30EA\u30F3"
+  hp: 200
+  cost: 8
+  id: 2
   image: {fileID: 0}
-  generation: 0

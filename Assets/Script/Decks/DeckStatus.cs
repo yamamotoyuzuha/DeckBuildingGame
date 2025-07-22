@@ -8,4 +8,5 @@ public class DeckStatus : MonoBehaviour
     public int hp;
     public int cost;
     public int iD;
+    public int generation;
 }
